@@ -28,7 +28,7 @@ public class ArrayServiceImplTest {
             } catch (ArrayException e) {
                 fail("File parse error: " + e.getMessage());
             }
-        } catch (IOException e) {
+        } catch (IOException | ArrayException e) {
             fail("File read error: " + e.getMessage());
         }
     }

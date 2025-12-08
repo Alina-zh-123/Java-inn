@@ -7,7 +7,7 @@ import org.apache.logging.log4j.Logger;
 import com.zhilyuk.task1.exception.ArrayException;
 
 public class ArraySortImpl implements ArraySort {
-    private static final Logger logger = LogManager.getLogger(ArraySortImpl.class);
+    private static final Logger logger = LogManager.getLogger();
 
     @Override
     public void selectionSort(CustomArray array) {

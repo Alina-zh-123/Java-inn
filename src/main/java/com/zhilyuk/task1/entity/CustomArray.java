@@ -1,12 +1,15 @@
 package com.zhilyuk.task1.entity;
 
 import com.zhilyuk.task1.exception.ArrayException;
+import com.zhilyuk.task1.observer.impl.CustomArrayObserverImpl;
+
 import java.util.Arrays;
 
 public class CustomArray {
     private long arrayId;
     private int[] array;
     final private int size;
+    private CustomArrayObserverImpl observer;
 
     public CustomArray(int[] array) {
         this.array = array.clone();
@@ -30,6 +33,7 @@ public class CustomArray {
             throw new ArrayException("Id must be positive!");
         }
         this.arrayId = arrayId;
+        notifyArrayObserver(this);
     }
 
     public void setElement(int index, int value) throws ArrayException {
@@ -37,6 +41,11 @@ public class CustomArray {
             throw new ArrayException("Index must be non-negative!");
         }
         array[index] = value;
+        notifyArrayObserver(this);
+    }
+
+    public void notifyArrayObserver(CustomArray array) {
+        observer.onCustomArrayChange(array);
     }
 
     @Override

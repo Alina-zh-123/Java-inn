@@ -1,5 +1,6 @@
 package com.zhilyuk.task1.reader.impl;
 
+import com.zhilyuk.task1.exception.ArrayException;
 import com.zhilyuk.task1.reader.ArrayFileReader;
 import java.io.IOException;
 import org.apache.logging.log4j.LogManager;
@@ -10,10 +11,14 @@ import java.util.List;
 
 
 public class ArrayFileReaderImpl implements ArrayFileReader {
-    private static final Logger logger = LogManager.getLogger(ArrayFileReaderImpl.class);
+    private static final Logger logger = LogManager.getLogger();
 
     @Override
-    public List<String> arrayReadFromFile(String path) throws IOException {
+    public List<String> arrayReadFromFile(String path) throws IOException, ArrayException {
+        if (path.isBlank()) {
+            logger.error("File path is empty");
+            throw new ArrayException("File path is empty!");
+        }
         try {
             List<String> arrays = Files.readAllLines(Paths.get(path));
             logger.info("File is read, created {} arrays", arrays.size());

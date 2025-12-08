@@ -1,1 +1,1 @@
-15:20:27.038 [main] INFO  zhilyuk.task1.service.impl.ArrayCalculationImpl - Found max in array: 5
+13:21:39.268 [main] INFO  zhilyuk.task1.service.impl.ArraySortImpl - Array sorted by selection sort: com.zhilyuk.task1.entity.CustomArray@c4648

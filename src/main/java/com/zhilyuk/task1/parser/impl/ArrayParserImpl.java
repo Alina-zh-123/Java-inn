@@ -11,8 +11,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ArrayParserImpl implements ArrayParser {
-    private static final Logger logger = LogManager.getLogger(ArrayParserImpl.class);
-    private static final String REGEX_DELIMITERS = "[,;\\-\\s]";
+    private static final Logger logger = LogManager.getLogger();
+    private static final String DELIMITERS_REGEX = "[,;\\-\\s]";
 
     @Override
     public List<CustomArray> arrayParse(List<String> arraysString) throws ArrayException {
@@ -20,7 +20,7 @@ public class ArrayParserImpl implements ArrayParser {
         ArrayValidatorImpl validator = new ArrayValidatorImpl();
         for (String line : arraysString) {
             if (validator.arrayValidateString(line)) {
-                String[] arrayString = line.trim().split(REGEX_DELIMITERS);
+                String[] arrayString = line.strip().split(DELIMITERS_REGEX);
                 int[] intArray = new int[arrayString.length];
 
                 for (int i = 0; i < arrayString.length; i++) {

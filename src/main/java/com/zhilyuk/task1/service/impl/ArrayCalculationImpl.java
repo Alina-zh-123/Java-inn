@@ -7,7 +7,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 public class ArrayCalculationImpl implements ArrayCalculation {
-    private static final Logger logger = LogManager.getLogger(ArrayCalculationImpl.class);
+    private static final Logger logger = LogManager.getLogger();
 
     @Override
     public OptionalInt findMaxInArray(CustomArray array) {

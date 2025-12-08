@@ -6,7 +6,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 public class ArrayFactoryImpl implements ArrayFactory {
-    private static final Logger logger = LogManager.getLogger(ArrayFactoryImpl.class);
+    private static final Logger logger = LogManager.getLogger();
 
     @Override
     public CustomArray createArray(int[] array) {
